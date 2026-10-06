@@ -1,0 +1,1173 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pichardo & Asociados | Contabilidad, Finanzas y Estrategia</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            900: '#0A192F',
+                            800: '#112240',
+                            700: '#1E3A8A',
+                            600: '#2563EB',
+                        },
+                        gold: {
+                            500: '#D4AF37',
+                            600: '#C5A059',
+                            400: '#E5C158',
+                        },
+                        emeraldSubtle: '#10B981',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome for professional icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F8FAFC;
+            color: #1E293B;
+        }
+        .glass-nav {
+            background: rgba(10, 25, 47, 0.95);
+            backdrop-filter: blur(10px);
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #0A192F 0%, #112240 50%, #1E3A8A 100%);
+        }
+        .gold-gradient {
+            background: linear-gradient(135deg, #D4AF37 0%, #C5A059 100%);
+        }
+        .gold-text {
+            background: linear-gradient(135deg, #F3E5AB 0%, #D4AF37 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        /* Custom smooth scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0A192F;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #D4AF37;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-gold-500 selection:text-navy-900">
+
+    <!-- 1. BARRA DE NAVEGACIÓN FIJA -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-nav border-b border-navy-800 transition-all duration-300 shadow-xl">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <a href="#inicio" class="flex items-center space-x-3 group">
+                    <div class="w-10 h-10 rounded-lg gold-gradient flex items-center justify-center text-navy-900 font-bold text-xl shadow-md group-hover:scale-105 transition-transform">
+                        P&A
+                    </div>
+                    <div>
+                        <span class="text-white font-bold text-lg tracking-wider block">PICHARDO & ASOCIADOS</span>
+                        <span class="text-gold-500 text-xs tracking-widest font-semibold uppercase block">Contabilidad, Finanzas & Estrategia</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden xl:flex items-center space-x-6 text-sm font-medium text-slate-300">
+                    <a href="#inicio" class="hover:text-gold-400 transition-colors">Inicio</a>
+                    <a href="#quienes-somos" class="hover:text-gold-400 transition-colors">Quiénes Somos</a>
+                    <a href="#servicios" class="hover:text-gold-400 transition-colors">Servicios</a>
+                    <a href="#ayudamos" class="hover:text-gold-400 transition-colors">¿A Quiénes Ayudamos?</a>
+                    <a href="#enfoque" class="hover:text-gold-400 transition-colors">Enfoque</a>
+                    <a href="#por-que-elegirnos" class="hover:text-gold-400 transition-colors">Por Qué Elegirnos</a>
+                    <a href="#insights" class="hover:text-gold-400 transition-colors">Insights</a>
+                    <a href="#contacto" class="hover:text-gold-400 transition-colors">Contacto</a>
+                </nav>
+
+                <!-- CTA Button -->
+                <div class="hidden md:flex items-center space-x-4">
+                    <a href="https://wa.me/50589375553?text=Hola,%20me%20gustaría%20solicitar%20asesoría%20financiera%20y%20contable%20con%20Pichardo%20%26%20Asociados." target="_blank" rel="noopener noreferrer" class="gold-gradient text-navy-900 font-bold px-5 py-2.5 rounded-lg shadow-lg hover:opacity-95 transform hover:-translate-y-0.5 transition-all text-sm flex items-center space-x-2">
+                        <i class="fa-brands fa-whatsapp text-base"></i>
+                        <span>Solicitar Asesoría</span>
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="xl:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-slate-300 hover:text-white focus:outline-none p-2">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Modal/Dropdown -->
+        <div id="mobile-menu" class="hidden xl:hidden bg-navy-900 border-b border-navy-800 px-4 pt-2 pb-6 space-y-3">
+            <a href="#inicio" class="block text-slate-300 hover:text-gold-400 py-2 border-b border-slate-800">Inicio</a>
+            <a href="#quienes-somos" class="block text-slate-300 hover:text-gold-400 py-2 border-b border-slate-800">Quiénes Somos</a>
+            <a href="#servicios" class="block text-slate-300 hover:text-gold-400 py-2 border-b border-slate-800">Servicios</a>
+            <a href="#ayudamos" class="block text-slate-300 hover:text-gold-400 py-2 border-b border-slate-800">¿A Quiénes Ayudamos?</a>
+            <a href="#enfoque" class="block text-slate-300 hover:text-gold-400 py-2 border-b border-slate-800">Enfoque</a>
+            <a href="#por-que-elegirnos" class="block text-slate-300 hover:text-gold-400 py-2 border-b border-slate-800">Por Qué Elegirnos</a>
+            <a href="#insights" class="block text-slate-300 hover:text-gold-400 py-2 border-b border-slate-800">Insights</a>
+            <a href="#contacto" class="block text-slate-300 hover:text-gold-400 py-2">Contacto</a>
+            <div class="pt-2">
+                <a href="https://wa.me/50589375553?text=Hola,%20me%20gustaría%20solicitar%20asesoría%20con%20Pichardo%20%26%20Asociados." target="_blank" class="w-full gold-gradient text-navy-900 font-bold py-3 rounded-lg flex items-center justify-center space-x-2 shadow-md">
+                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                    <span>Solicitar Asesoría por WhatsApp</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 2. HERO SECTION (INICIO) -->
+    <section id="inicio" class="relative min-h-screen flex items-center justify-center hero-gradient pt-28 pb-16 overflow-hidden">
+        <!-- Background Decorative Elements -->
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#D4AF37_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none"></div>
+        <div class="absolute -top-40 -right-40 w-96 h-96 bg-gold-500/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -bottom-40 -left-40 w-96 h-96 bg-blue-600/20 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center py-12">
+            <div class="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-navy-800/80 border border-gold-500/30 text-gold-400 text-xs sm:text-sm font-semibold mb-6 shadow-lg animate-pulse">
+                <i class="fa-solid fa-chart-line"></i>
+                <span>Firma de Servicios Profesionales en Nicaragua</span>
+            </div>
+            
+            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-white tracking-tight leading-tight max-w-5xl mx-auto mb-6">
+                Ordena tus finanzas. <span class="gold-text">Fortalece tu empresa.</span> Impulsa tu crecimiento.
+            </h1>
+            
+            <p class="text-lg sm:text-xl text-slate-300 max-w-3xl mx-auto mb-10 leading-relaxed font-light">
+                Contabilidad, tributación, finanzas, auditoría, gestión empresarial y tecnología para empresas que buscan crecer con información confiable y decisiones inteligentes.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
+                <a href="#servicios" class="w-full sm:w-auto gold-gradient text-navy-900 font-bold px-8 py-4 rounded-xl shadow-xl hover:shadow-gold-500/20 transform hover:-translate-y-1 transition-all flex items-center justify-center space-x-3 text-base">
+                    <span>Conocer nuestros servicios</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+                <a href="https://wa.me/50589375553?text=Hola,%20deseo%20solicitar%20asesoría%20empresarial%20para%20mi%20negocio." target="_blank" class="w-full sm:w-auto bg-navy-800/80 hover:bg-navy-700 text-white border border-slate-700 font-semibold px-8 py-4 rounded-xl shadow-lg transition-all flex items-center justify-center space-x-3 text-base">
+                    <i class="fa-brands fa-whatsapp text-emerald-400 text-lg"></i>
+                    <span>Solicitar asesoría</span>
+                </a>
+            </div>
+
+            <!-- Quick Trust Metrics -->
+            <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 pt-10 border-t border-slate-800/80 max-w-5xl mx-auto text-left">
+                <div class="bg-navy-800/40 backdrop-blur border border-slate-800 p-4 rounded-xl">
+                    <div class="text-gold-400 text-2xl sm:text-3xl font-extrabold mb-1">+100%</div>
+                    <div class="text-slate-400 text-xs sm:text-sm">Control Operativo & Tributario</div>
+                </div>
+                <div class="bg-navy-800/40 backdrop-blur border border-slate-800 p-4 rounded-xl">
+                    <div class="text-gold-400 text-2xl sm:text-3xl font-extrabold mb-1">5 Divisiones</div>
+                    <div class="text-slate-400 text-xs sm:text-sm">Soluciones Integrales</div>
+                </div>
+                <div class="bg-navy-800/40 backdrop-blur border border-slate-800 p-4 rounded-xl">
+                    <div class="text-gold-400 text-2xl sm:text-3xl font-extrabold mb-1">Visión 360°</div>
+                    <div class="text-slate-400 text-xs sm:text-sm">Estrategia + Tecnología</div>
+                </div>
+                <div class="bg-navy-800/40 backdrop-blur border border-slate-800 p-4 rounded-xl">
+                    <div class="text-gold-400 text-2xl sm:text-3xl font-extrabold mb-1">Managua</div>
+                    <div class="text-slate-400 text-xs sm:text-sm">Cobertura en Nicaragua</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. ¿QUIÉNES SOMOS? & 7 BENEFICIOS CLAVE -->
+    <section id="quienes-somos" class="py-24 bg-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-navy-700 font-bold tracking-widest uppercase text-xs sm:text-sm bg-blue-50 px-3 py-1 rounded-full border border-blue-100">Aliados Estratégicos</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-navy-900 mt-3 mb-4">Somos aliados estratégicos para la gestión de tu empresa</h2>
+                <p class="text-slate-600 text-base sm:text-lg leading-relaxed">
+                    En <strong>Pichardo & Asociados</strong> entendemos que administrar una empresa implica mucho más que llevar una contabilidad. Una empresa necesita información confiable, cumplimiento tributario, controles adecuados, planificación financiera y procesos eficientes.
+                </p>
+            </div>
+
+            <!-- 7 Beneficios Clave Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <!-- Beneficio 1 -->
+                <div class="bg-slate-50 border border-slate-200/80 p-6 rounded-2xl hover:shadow-xl hover:border-gold-500/50 transition-all duration-300 group">
+                    <div class="w-12 h-12 rounded-xl bg-navy-900 text-gold-400 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform shadow-md">
+                        📊
+                    </div>
+                    <h3 class="font-bold text-navy-900 text-lg mb-2">Situación Financiera Clara</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">Conocer realmente la situación financiera de su empresa con reportes precisos y actualizados.</p>
+                </div>
+
+                <!-- Beneficio 2 -->
+                <div class="bg-slate-50 border border-slate-200/80 p-6 rounded-2xl hover:shadow-xl hover:border-gold-500/50 transition-all duration-300 group">
+                    <div class="w-12 h-12 rounded-xl bg-navy-900 text-gold-400 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform shadow-md">
+                        💰
+                    </div>
+                    <h3 class="font-bold text-navy-900 text-lg mb-2">Optimización de Efectivo</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">Mejorar el control del flujo de efectivo para garantizar liquidez y estabilidad operativa.</p>
+                </div>
+
+                <!-- Beneficio 3 -->
+                <div class="bg-slate-50 border border-slate-200/80 p-6 rounded-2xl hover:shadow-xl hover:border-gold-500/50 transition-all duration-300 group">
+                    <div class="w-12 h-12 rounded-xl bg-navy-900 text-gold-400 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform shadow-md">
+                        📑
+                    </div>
+                    <h3 class="font-bold text-navy-900 text-lg mb-2">Cumplimiento Tributario</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">Cumplir adecuadamente y a tiempo con todas las obligaciones fiscales ante la DGI y Alcaldía.</p>
+                </div>
+
+                <!-- Beneficio 4 -->
+                <div class="bg-slate-50 border border-slate-200/80 p-6 rounded-2xl hover:shadow-xl hover:border-gold-500/50 transition-all duration-300 group">
+                    <div class="w-12 h-12 rounded-xl bg-navy-900 text-gold-400 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform shadow-md">
+                        🔎
+                    </div>
+                    <h3 class="font-bold text-navy-900 text-lg mb-2">Mitigación de Riesgos</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">Identificar riesgos oportunamente y fortalecer los controles internos de la organización.</p>
+                </div>
+
+                <!-- Beneficio 5 -->
+                <div class="bg-slate-50 border border-slate-200/80 p-6 rounded-2xl hover:shadow-xl hover:border-gold-500/50 transition-all duration-300 group">
+                    <div class="w-12 h-12 rounded-xl bg-navy-900 text-gold-400 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform shadow-md">
+                        ⚙️
+                    </div>
+                    <h3 class="font-bold text-navy-900 text-lg mb-2">Procesos Eficientes</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">Optimizar procesos administrativos y financieros para reducir costos y eliminar cuellos de botella.</p>
+                </div>
+
+                <!-- Beneficio 6 -->
+                <div class="bg-slate-50 border border-slate-200/80 p-6 rounded-2xl hover:shadow-xl hover:border-gold-500/50 transition-all duration-300 group">
+                    <div class="w-12 h-12 rounded-xl bg-navy-900 text-gold-400 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform shadow-md">
+                        🤖
+                    </div>
+                    <h3 class="font-bold text-navy-900 text-lg mb-2">Tecnología y Automatización</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">Incorporar sistemas ERP, dashboards e inteligencia artificial aplicada a la gestión administrativa.</p>
+                </div>
+
+                <!-- Beneficio 7 -->
+                <div class="bg-slate-50 border border-slate-200/80 p-6 rounded-2xl hover:shadow-xl hover:border-gold-500/50 transition-all duration-300 group md:col-span-2 lg:col-span-1 xl:col-span-2">
+                    <div class="w-12 h-12 rounded-xl bg-navy-900 text-gold-400 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform shadow-md">
+                        📈
+                    </div>
+                    <h3 class="font-bold text-navy-900 text-lg mb-2">Decisiones Basadas en Datos</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">Tomar decisiones estratégicas fundamentadas en información confiable, garantizando mayor orden, control y claridad para dirigir sus negocios hacia el éxito sostenible.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. NUESTROS SERVICIOS (5 DIVISIONES) -->
+    <section id="servicios" class="py-24 bg-slate-900 text-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-gold-400 font-bold tracking-widest uppercase text-xs sm:text-sm bg-navy-800 px-3 py-1 rounded-full border border-gold-500/30">Nuestras Divisiones</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-3 mb-4">Soluciones Profesionales Especializadas</h2>
+                <p class="text-slate-300 text-base sm:text-lg">
+                    Estructuramos nuestros servicios en 5 divisiones clave para atender integralmente todas las necesidades corporativas y de PYMES.
+                </p>
+            </div>
+
+            <!-- Tab Navigation Buttons -->
+            <div class="flex flex-wrap justify-center gap-2 sm:gap-4 mb-12">
+                <button onclick="switchServiceTab(0)" id="tab-btn-0" class="service-tab-btn px-5 py-3 rounded-xl font-bold text-sm transition-all bg-gold-500 text-navy-900 shadow-lg flex items-center space-x-2">
+                    <i class="fa-solid fa-chart-pie"></i>
+                    <span>Contabilidad & Finanzas</span>
+                </button>
+                <button onclick="switchServiceTab(1)" id="tab-btn-1" class="service-tab-btn px-5 py-3 rounded-xl font-bold text-sm transition-all bg-navy-800 text-slate-300 hover:bg-navy-700 hover:text-white border border-slate-700 flex items-center space-x-2">
+                    <i class="fa-solid fa-file-invoice-dollar"></i>
+                    <span>Tributación & Cumplimiento</span>
+                </button>
+                <button onclick="switchServiceTab(2)" id="tab-btn-2" class="service-tab-btn px-5 py-3 rounded-xl font-bold text-sm transition-all bg-navy-800 text-slate-300 hover:bg-navy-700 hover:text-white border border-slate-700 flex items-center space-x-2">
+                    <i class="fa-solid fa-magnifying-glass-chart"></i>
+                    <span>Auditoría & Control Interno</span>
+                </button>
+                <button onclick="switchServiceTab(3)" id="tab-btn-3" class="service-tab-btn px-5 py-3 rounded-xl font-bold text-sm transition-all bg-navy-800 text-slate-300 hover:bg-navy-700 hover:text-white border border-slate-700 flex items-center space-x-2">
+                    <i class="fa-solid fa-briefcase"></i>
+                    <span>Gestión Empresarial</span>
+                </button>
+                <button onclick="switchServiceTab(4)" id="tab-btn-4" class="service-tab-btn px-5 py-3 rounded-xl font-bold text-sm transition-all bg-navy-800 text-slate-300 hover:bg-navy-700 hover:text-white border border-slate-700 flex items-center space-x-2">
+                    <i class="fa-solid fa-laptop-code"></i>
+                    <span>Tecnología & Transformación</span>
+                </button>
+            </div>
+
+            <!-- Tab Content Containers -->
+            <div class="bg-navy-800 border border-slate-700 rounded-3xl p-6 sm:p-10 shadow-2xl">
+                
+                <!-- Div 1: Contabilidad & Finanzas -->
+                <div id="service-content-0" class="service-content block">
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
+                        <div class="lg:col-span-1">
+                            <div class="inline-block p-4 bg-gold-500/10 rounded-2xl border border-gold-500/30 text-gold-400 text-3xl mb-4">
+                                <i class="fa-solid fa-chart-pie"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white mb-3">Contabilidad & Finanzas</h3>
+                            <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-6">
+                                Soluciones especializadas para mantener información financiera confiable, transparente y sumamente útil para la toma de decisiones gerenciales.
+                            </p>
+                            <a href="https://wa.me/50589375553?text=Hola,%20me%20interesa%20información%20sobre%20Contabilidad%20y%20Finanzas." target="_blank" class="inline-flex items-center space-x-2 gold-gradient text-navy-900 font-bold px-6 py-3 rounded-xl shadow-md hover:opacity-90 transition-all text-sm">
+                                <i class="fa-brands fa-whatsapp text-lg"></i>
+                                <span>Ver servicios y cotizar</span>
+                            </a>
+                        </div>
+                        <div class="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-4 bg-navy-900/60 p-6 rounded-2xl border border-slate-700">
+                            <div class="flex items-start space-x-3">
+                                <i class="fa-solid fa-check-circle text-gold-400 mt-1"></i>
+                                <div><h4 class="font-semibold text-white">Contabilidad empresarial</h4><p class="text-slate-400 text-xs">Registros precisos bajo normativas vigentes.</p></div>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <i class="fa-solid fa-check-circle text-gold-400 mt-1"></i>
+                                <div><h4 class="font-semibold text-white">Outsourcing contable</h4><p class="text-slate-400 text-xs">Delegue su departamento contable en expertos.</p></div>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <i class="fa-solid fa-check-circle text-gold-400 mt-1"></i>
+                                <div><h4 class="font-semibold text-white">Estados financieros</h4><p class="text-slate-400 text-xs">Balances generales y estado de resultados oportunos.</p></div>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <i class="fa-solid fa-check-circle text-gold-400 mt-1"></i>
+                                <div><h4 class="font-semibold text-white">Conciliaciones bancarias</h4><p class="text-slate-400 text-xs">Control exacto de cuentas y saldos.</p></div>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <i class="fa-solid fa-check-circle text-gold-400 mt-1"></i>
+                                <div><h4 class="font-semibold text-white">Cuentas por cobrar y pagar</h4><p class="text-slate-400 text-xs">Gestión eficiente del ciclo de efectivo.</p></div>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <i class="fa-solid fa-check-circle text-gold-400 mt-1"></i>
+                                <div><h4 class="font-semibold text-white">Flujo de caja y Presupuestos</h4><p class="text-slate-400 text-xs">Proyecciones financieras y control presupuestario.</p></div>
+                            </div>
+                            <div class="flex items-start space-x-3 sm:col-span-2">
+                                <i class="fa-solid fa-check-circle text-gold-400 mt-1"></i>
+                                <div><h4 class="font-semibold text-white">Análisis financiero e Indicadores de gestión</h4><p class="text-slate-400 text-xs">Interpretación de KPIs para la alta gerencia.</p></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Div 2: Tributación & Cumplimiento -->
+                <div id="service-content-1" class="service-content hidden">
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
+                        <div class="lg:col-span-1">
+                            <div class="inline-block p-4 bg-gold-500/10 rounded-2xl border border-gold-500/30 text-gold-400 text-3xl mb-4">
+                                <i class="fa-solid fa-file-invoice-dollar"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white mb-3">Tributación & Cumplimiento</h3>
+                            <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-6">
+                                Acompañamiento especializado para gestionar las obligaciones fiscales en Nicaragua, minimizando riesgos y asegurando el cumplimiento legal ante las autoridades.
+                            </p>
+                            <a href="https://wa.me/50589375553?text=Hola,%20me%20interesa%20información%20sobre%20Tributación%20y%20Cumplimiento." target="_blank" class="inline-flex items-center space-x-2 gold-gradient text-navy-900 font-bold px-6 py-3 rounded-xl shadow-md hover:opacity-90 transition-all text-sm">
+                                <i class="fa-brands fa-whatsapp text-lg"></i>
+                                <span>Ver servicios y cotizar</span>
+                            </a>
+                        </div>
+                        <div class="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-4 bg-navy-900/60 p-6 rounded-2xl border border-slate-700">
+                            <div class="flex items-start space-x-3">
+                                <i class="fa-solid fa-check-circle text-gold-400 mt-1"></i>
+                                <div><h4 class="font-semibold text-white">Declaraciones tributarias (DGI / Alcaldía)</h4><p class="text-slate-400 text-xs">Presentación puntual y correcta.</p></div>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <i class="fa-solid fa-check-circle text-gold-400 mt-1"></i>
+                                <div><h4 class="font-semibold text-white">Gestión de IVA, IR y Retenciones</h4><p class="text-slate-400 text-xs">Control riguroso de impuestos mensuales.</p></div>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <i class="fa-solid fa-check-circle text-gold-400 mt-1"></i>
+                                <div><h4 class="font-semibold text-white">Revisión fiscal y Diagnóstico tributario</h4><p class="text-slate-400 text-xs">Detección anticipada de contingencias fiscales.</p></div>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <i class="fa-solid fa-check-circle text-gold-400 mt-1"></i>
+                                <div><h4 class="font-semibold text-white">Auditoría preventiva fiscal</h4><p class="text-slate-400 text-xs">Simulaciones previas a auditorías oficiales.</p></div>
+                            </div>
+                            <div class="flex items-start space-x-3 sm:col-span-2">
+                                <i class="fa-solid fa-check-circle text-gold-400 mt-1"></i>
+                                <div><h4 class="font-semibold text-white">Certificación de ingresos y Acompañamiento tributario permanente</h4><p class="text-slate-400 text-xs">Validez legal y asesoría continua ante requerimientos.</p></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Div 3: Auditoría & Control Interno -->
+                <div id="service-content-2" class="service-content hidden">
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
+                        <div class="lg:col-span-1">
+                            <div class="inline-block p-4 bg-gold-500/10 rounded-2xl border border-gold-500/30 text-gold-400 text-3xl mb-4">
+                                <i class="fa-solid fa-magnifying-glass-chart"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white mb-3">Auditoría & Control Interno</h3>
+                            <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-6">
+                                Evaluamos información, procesos y controles operativos para identificar riesgos, prevenir fraudes y descubrir oportunidades reales de mejora continua.
+                            </p>
+                            <a href="https://wa.me/50589375553?text=Hola,%20me%20interesa%20información%20sobre%20Auditoría%20y%20Control%20Interno." target="_blank" class="inline-flex items-center space-x-2 gold-gradient text-navy-900 font-bold px-6 py-3 rounded-xl shadow-md hover:opacity-90 transition-all text-sm">
+                                <i class="fa-brands fa-whatsapp text-lg"></i>
+                                <span>Ver servicios y cotizar</span>
+                            </a>
+                        </div>
+                        <div class="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-4 bg-navy-900/60 p-6 rounded-2xl border border-slate-700">
+                            <div class="flex items-start space-x-3">
+                                <i class="fa-solid fa-check-circle text-gold-400 mt-1"></i>
+                                <div><h4 class="font-semibold text-white">Auditoría financiera y tributaria</h4><p class="text-slate-400 text-xs">Dictámenes de estados financieros confiables.</p></div>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <i class="fa-solid fa-check-circle text-gold-400 mt-1"></i>
+                                <div><h4 class="font-semibold text-white">Control interno y Evaluación de procesos</h4><p class="text-slate-400 text-xs">Diseño de salvaguardas para activos.</p></div>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <i class="fa-solid fa-check-circle text-gold-400 mt-1"></i>
+                                <div><h4 class="font-semibold text-white">Gestión integral de riesgos</h4><p class="text-slate-400 text-xs">Identificación y mitigación de vulnerabilidades.</p></div>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <i class="fa-solid fa-check-circle text-gold-400 mt-1"></i>
+                                <div><h4 class="font-semibold text-white">Auditoría de inventarios y cuentas</h4><p class="text-slate-400 text-xs">Arqueos y confirmaciones independientes.</p></div>
+                            </div>
+                            <div class="flex items-start space-x-3 sm:col-span-2">
+                                <i class="fa-solid fa-check-circle text-gold-400 mt-1"></i>
+                                <div><h4 class="font-semibold text-white">Planes de mejora y cumplimiento</h4><p class="text-slate-400 text-xs">Recomendaciones ejecutivas para la gerencia.</p></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Div 4: Gestión Empresarial -->
+                <div id="service-content-3" class="service-content hidden">
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
+                        <div class="lg:col-span-1">
+                            <div class="inline-block p-4 bg-gold-500/10 rounded-2xl border border-gold-500/30 text-gold-400 text-3xl mb-4">
+                                <i class="fa-solid fa-briefcase"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white mb-3">Gestión Empresarial</h3>
+                            <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-6">
+                                Ayudamos a las empresas a mejorar la administración de sus recursos, compras, costos y procesos operativos para elevar su rentabilidad.
+                            </p>
+                            <a href="https://wa.me/50589375553?text=Hola,%20me%20interesa%20información%20sobre%20Gestión%20Empresarial." target="_blank" class="inline-flex items-center space-x-2 gold-gradient text-navy-900 font-bold px-6 py-3 rounded-xl shadow-md hover:opacity-90 transition-all text-sm">
+                                <i class="fa-brands fa-whatsapp text-lg"></i>
+                                <span>Ver servicios y cotizar</span>
+                            </a>
+                        </div>
+                        <div class="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-4 bg-navy-900/60 p-6 rounded-2xl border border-slate-700">
+                            <div class="flex items-start space-x-3">
+                                <i class="fa-solid fa-check-circle text-gold-400 mt-1"></i>
+                                <div><h4 class="font-semibold text-white">Consultoría y Planeación financiera</h4><p class="text-slate-400 text-xs">Estrategias de expansión y rentabilidad.</p></div>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <i class="fa-solid fa-check-circle text-gold-400 mt-1"></i>
+                                <div><h4 class="font-semibold text-white">Gestión de compras y Proveedores</h4><p class="text-slate-400 text-xs">Evaluación y optimización de cadena de suministro.</p></div>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <i class="fa-solid fa-check-circle text-gold-400 mt-1"></i>
+                                <div><h4 class="font-semibold text-white">Optimización de costos y gastos</h4><p class="text-slate-400 text-xs">Eficiencia operativa sin sacrificar calidad.</p></div>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <i class="fa-solid fa-check-circle text-gold-400 mt-1"></i>
+                                <div><h4 class="font-semibold text-white">Procesos administrativos y Organización</h4><p class="text-slate-400 text-xs">Estructuración de manuales y flujogramas.</p></div>
+                            </div>
+                            <div class="flex items-start space-x-3 sm:col-span-2">
+                                <i class="fa-solid fa-check-circle text-gold-400 mt-1"></i>
+                                <div><h4 class="font-semibold text-white">Indicadores Clave de Desempeño (KPIs)</h4><p class="text-slate-400 text-xs">Tableros de control para medir metas corporativas.</p></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Div 5: Tecnología & Transformación -->
+                <div id="service-content-4" class="service-content hidden">
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
+                        <div class="lg:col-span-1">
+                            <div class="inline-block p-4 bg-gold-500/10 rounded-2xl border border-gold-500/30 text-gold-400 text-3xl mb-4">
+                                <i class="fa-solid fa-laptop-code"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white mb-3">Tecnología & Transformación</h3>
+                            <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-6">
+                                Integramos tecnología de punta para elevar la calidad de la información, automatizar procesos repetitivos y empoderar el control empresarial.
+                            </p>
+                            <a href="https://wa.me/50589375553?text=Hola,%20me%20interesa%20información%20sobre%20Tecnología%20y%20Transformación%20Digital." target="_blank" class="inline-flex items-center space-x-2 gold-gradient text-navy-900 font-bold px-6 py-3 rounded-xl shadow-md hover:opacity-90 transition-all text-sm">
+                                <i class="fa-brands fa-whatsapp text-lg"></i>
+                                <span>Ver soluciones y cotizar</span>
+                            </a>
+                        </div>
+                        <div class="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-4 bg-navy-900/60 p-6 rounded-2xl border border-slate-700">
+                            <div class="flex items-start space-x-3">
+                                <i class="fa-solid fa-check-circle text-gold-400 mt-1"></i>
+                                <div><h4 class="font-semibold text-white">Sistemas contables y ERP</h4><p class="text-slate-400 text-xs">Implementación y parametrización avanzada.</p></div>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <i class="fa-solid fa-check-circle text-gold-400 mt-1"></i>
+                                <div><h4 class="font-semibold text-white">Automatización de procesos</h4><p class="text-slate-400 text-xs">Reducción de errores manuales y tiempos.</p></div>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <i class="fa-solid fa-check-circle text-gold-400 mt-1"></i>
+                                <div><h4 class="font-semibold text-white">Business Intelligence & Dashboards</h4><p class="text-slate-400 text-xs">Tableros gerenciales en tiempo real.</p></div>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <i class="fa-solid fa-check-circle text-gold-400 mt-1"></i>
+                                <div><h4 class="font-semibold text-white">Digitalización documental</h4><p class="text-slate-400 text-xs">Archivos seguros y accesibles en la nube.</p></div>
+                            </div>
+                            <div class="flex items-start space-x-3 sm:col-span-2">
+                                <i class="fa-solid fa-check-circle text-gold-400 mt-1"></i>
+                                <div><h4 class="font-semibold text-white">IA aplicada a procesos administrativos y financieros</h4><p class="text-slate-400 text-xs">Innovación inteligente para optimizar operaciones.</p></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. ¿A QUIÉNES AYUDAMOS? -->
+    <section id="ayudamos" class="py-24 bg-slate-50 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-navy-700 font-bold tracking-widest uppercase text-xs sm:text-sm bg-blue-50 px-3 py-1 rounded-full border border-blue-100">Segmentos de Atención</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-navy-900 mt-3 mb-4">Soluciones adaptadas al tamaño y etapa de cada empresa</h2>
+                <p class="text-slate-600 text-base sm:text-lg">
+                    Cada organización tiene retos particulares. Diseñamos planes a su medida para acompañarles con precisión quirúrgica.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Emprendedores -->
+                <div class="bg-white border-t-4 border-emerald-500 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center space-x-3 mb-6">
+                            <div class="w-10 h-10 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-lg">
+                                🟢
+                            </div>
+                            <h3 class="font-bold text-navy-900 text-xl">Emprendedores</h3>
+                        </div>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                            Para quienes están comenzando y necesitan construir correctamente sus bases administrativas, contables y financieras desde el día uno.
+                        </p>
+                    </div>
+                    <ul class="space-y-2 text-xs text-slate-500 border-t border-slate-100 pt-4">
+                        <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i>Constitución y trámites DGI</li>
+                        <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i>Contabilidad inicial ordenada</li>
+                        <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i>Asesoría tributaria básica</li>
+                    </ul>
+                </div>
+
+                <!-- PYMES -->
+                <div class="bg-white border-t-4 border-blue-600 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center space-x-3 mb-6">
+                            <div class="w-10 h-10 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center text-lg">
+                                🔵
+                            </div>
+                            <h3 class="font-bold text-navy-900 text-xl">PYMES</h3>
+                        </div>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                            Para empresas en crecimiento que necesitan ordenar su contabilidad, impuestos, flujo de caja y procesos administrativos cotidianos.
+                        </p>
+                    </div>
+                    <ul class="space-y-2 text-xs text-slate-500 border-t border-slate-100 pt-4">
+                        <li><i class="fa-solid fa-check text-blue-600 mr-2"></i>Outsourcing contable completo</li>
+                        <li><i class="fa-solid fa-check text-blue-600 mr-2"></i>Control riguroso de IVA e IR</li>
+                        <li><i class="fa-solid fa-check text-blue-600 mr-2"></i>Flujo de caja y presupuestos</li>
+                    </ul>
+                </div>
+
+                <!-- Empresas medianas -->
+                <div class="bg-white border-t-4 border-purple-600 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center space-x-3 mb-6">
+                            <div class="w-10 h-10 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center text-lg">
+                                🟣
+                            </div>
+                            <h3 class="font-bold text-navy-900 text-xl">Empresas medianas</h3>
+                        </div>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                            Para organizaciones consolidadas que necesitan mayor control financiero, auditoría interna, indicadores de gestión y sistemas ERP.
+                        </p>
+                    </div>
+                    <ul class="space-y-2 text-xs text-slate-500 border-t border-slate-100 pt-4">
+                        <li><i class="fa-solid fa-check text-purple-600 mr-2"></i>Auditoría financiera y preventiva</li>
+                        <li><i class="fa-solid fa-check text-purple-600 mr-2"></i>Dashboards e Indicadores KPI</li>
+                        <li><i class="fa-solid fa-check text-purple-600 mr-2"></i>Optimización de procesos</li>
+                    </ul>
+                </div>
+
+                <!-- Empresas corporativas -->
+                <div class="bg-white border-t-4 border-slate-900 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center space-x-3 mb-6">
+                            <div class="w-10 h-10 rounded-full bg-slate-200 text-slate-900 flex items-center justify-center text-lg">
+                                ⚫
+                            </div>
+                            <h3 class="font-bold text-navy-900 text-xl">Corporativas</h3>
+                        </div>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                            Soluciones especializadas de alta gerencia, auditoría externa, consultoría estratégica, tecnología avanzada y gestión financiera corporativa.
+                        </p>
+                    </div>
+                    <ul class="space-y-2 text-xs text-slate-500 border-t border-slate-100 pt-4">
+                        <li><i class="fa-solid fa-check text-slate-900 mr-2"></i>Auditorías especiales</li>
+                        <li><i class="fa-solid fa-check text-slate-900 mr-2"></i>Transformación digital y BI</li>
+                        <li><i class="fa-solid fa-check text-slate-900 mr-2"></i>Consultoría financiera ejecutiva</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. NUESTRO ENFOQUE -->
+    <section id="enfoque" class="py-24 bg-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-navy-700 font-bold tracking-widest uppercase text-xs sm:text-sm bg-blue-50 px-3 py-1 rounded-full border border-blue-100">Metodología P&A</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-navy-900 mt-3 mb-4">Transformamos información en decisiones de alto impacto</h2>
+                <p class="text-slate-600 text-base sm:text-lg">
+                    No queremos que nuestros clientes reciban únicamente reportes fríos. Queremos que puedan entender sus números y utilizarlos para dirigir mejor sus empresas.
+                </p>
+            </div>
+
+            <!-- Flow Visualizer Box -->
+            <div class="bg-gradient-to-r from-navy-900 via-navy-800 to-navy-900 rounded-3xl p-8 sm:p-12 text-white shadow-2xl border border-slate-800">
+                <div class="grid grid-cols-1 md:grid-cols-5 gap-6 text-center relative">
+                    
+                    <!-- Step 1 -->
+                    <div class="flex flex-col items-center relative">
+                        <div class="w-16 h-16 rounded-2xl gold-gradient text-navy-900 font-extrabold text-xl flex items-center justify-center shadow-lg mb-4">
+                            01
+                        </div>
+                        <h3 class="font-bold text-lg mb-1">Información</h3>
+                        <p class="text-xs text-slate-300">Registros contables y tributarios exactos y puntuales.</p>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="flex flex-col items-center relative">
+                        <div class="w-16 h-16 rounded-2xl gold-gradient text-navy-900 font-extrabold text-xl flex items-center justify-center shadow-lg mb-4">
+                            02
+                        </div>
+                        <h3 class="font-bold text-lg mb-1">Análisis</h3>
+                        <p class="text-xs text-slate-300">Interpretación experta de estados financieros y flujos.</p>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="flex flex-col items-center relative">
+                        <div class="w-16 h-16 rounded-2xl gold-gradient text-navy-900 font-extrabold text-xl flex items-center justify-center shadow-lg mb-4">
+                            03
+                        </div>
+                        <h3 class="font-bold text-lg mb-1">Control</h3>
+                        <p class="text-xs text-slate-300">Mitigación de riesgos fiscales y operativos internos.</p>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="flex flex-col items-center relative">
+                        <div class="w-16 h-16 rounded-2xl gold-gradient text-navy-900 font-extrabold text-xl flex items-center justify-center shadow-lg mb-4">
+                            04
+                        </div>
+                        <h3 class="font-bold text-lg mb-1">Decisión</h3>
+                        <p class="text-xs text-slate-300">Acciones gerenciales basadas en datos confiables.</p>
+                    </div>
+
+                    <!-- Step 5 -->
+                    <div class="flex flex-col items-center relative">
+                        <div class="w-16 h-16 rounded-2xl gold-gradient text-navy-900 font-extrabold text-xl flex items-center justify-center shadow-lg mb-4">
+                            05
+                        </div>
+                        <h3 class="font-bold text-lg mb-1">Crecimiento</h3>
+                        <p class="text-xs text-slate-300">Expansión sostenible y rentabilidad a largo plazo.</p>
+                    </div>
+
+                </div>
+
+                <div class="mt-12 pt-8 border-t border-slate-700/80 text-center">
+                    <p class="text-gold-400 font-semibold text-sm sm:text-base">
+                        Conectamos: Contabilidad + Tributación + Finanzas + Control + Tecnología en una sola visión empresarial.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. ¿POR QUÉ PICHARDO & ASOCIADOS? -->
+    <section id="por-que-elegirnos" class="py-24 bg-slate-50 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-navy-700 font-bold tracking-widest uppercase text-xs sm:text-sm bg-blue-50 px-3 py-1 rounded-full border border-blue-100">Diferenciales de Élite</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-navy-900 mt-3 mb-4">¿Por qué elegir Pichardo & Asociados?</h2>
+                <p class="text-slate-600 text-base sm:text-lg">
+                    Nuestra filosofía combina rigor técnico, visión de negocios y cercanía con cada cliente.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Pilar 1 -->
+                <div class="bg-white p-8 rounded-2xl shadow-md border border-slate-200/80 hover:shadow-xl transition-all">
+                    <div class="w-12 h-12 rounded-xl bg-navy-900 text-gold-400 flex items-center justify-center text-xl mb-6 shadow">
+                        <i class="fa-solid fa-chess-queen"></i>
+                    </div>
+                    <h3 class="font-bold text-navy-900 text-xl mb-3">✔️ Enfoque empresarial</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">Entendemos que la contabilidad no es un fin en sí mismo, sino una herramienta indispensable para administrar mejor el negocio.</p>
+                </div>
+
+                <!-- Pilar 2 -->
+                <div class="bg-white p-8 rounded-2xl shadow-md border border-slate-200/80 hover:shadow-xl transition-all">
+                    <div class="w-12 h-12 rounded-xl bg-navy-900 text-gold-400 flex items-center justify-center text-xl mb-6 shadow">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <h3 class="font-bold text-navy-900 text-xl mb-3">✔️ Información confiable</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">Trabajamos incansablemente para que los estados financieros sean claros, ordenados, auditables y totalmente útiles.</p>
+                </div>
+
+                <!-- Pilar 3 -->
+                <div class="bg-white p-8 rounded-2xl shadow-md border border-slate-200/80 hover:shadow-xl transition-all">
+                    <div class="w-12 h-12 rounded-xl bg-navy-900 text-gold-400 flex items-center justify-center text-xl mb-6 shadow">
+                        <i class="fa-solid fa-circle-nodes"></i>
+                    </div>
+                    <h3 class="font-bold text-navy-900 text-xl mb-3">✔️️ Visión integral</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">Integramos contabilidad, impuestos, finanzas, auditoría, procesos y tecnología bajo un mismo paraguas estratégico.</p>
+                </div>
+
+                <!-- Pilar 4 -->
+                <div class="bg-white p-8 rounded-2xl shadow-md border border-slate-200/80 hover:shadow-xl transition-all">
+                    <div class="w-12 h-12 rounded-xl bg-navy-900 text-gold-400 flex items-center justify-center text-xl mb-6 shadow">
+                        <i class="fa-solid fa-eye"></i>
+                    </div>
+                    <h3 class="font-bold text-navy-900 text-xl mb-3">✔️ Prevención</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">Buscamos identificar riesgos fiscales y operativos antes de que se conviertan en problemas costosos para la empresa.</p>
+                </div>
+
+                <!-- Pilar 5 -->
+                <div class="bg-white p-8 rounded-2xl shadow-md border border-slate-200/80 hover:shadow-xl transition-all">
+                    <div class="w-12 h-12 rounded-xl bg-navy-900 text-gold-400 flex items-center justify-center text-xl mb-6 shadow">
+                        <i class="fa-solid fa-microchip"></i>
+                    </div>
+                    <h3 class="font-bold text-navy-900 text-xl mb-3">✔️ Tecnología</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">Promovemos herramientas digitales modernas, ERPs y automatización para elevar la eficiencia y el control gerencial.</p>
+                </div>
+
+                <!-- Pilar 6 -->
+                <div class="bg-white p-8 rounded-2xl shadow-md border border-slate-200/80 hover:shadow-xl transition-all">
+                    <div class="w-12 h-12 rounded-xl bg-navy-900 text-gold-400 flex items-center justify-center text-xl mb-6 shadow">
+                        <i class="fa-solid fa-handshake"></i>
+                    </div>
+                    <h3 class="font-bold text-navy-900 text-xl mb-3">✔️ Acompañamiento</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">Nuestro objetivo no es únicamente entregar un informe, sino aportar conocimiento de valor para la toma de decisiones.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. P&A BUSINESS INSIGHTS (CENTRO DE CONOCIMIENTO) -->
+    <section id="insights" class="py-24 bg-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-navy-700 font-bold tracking-widest uppercase text-xs sm:text-sm bg-blue-50 px-3 py-1 rounded-full border border-blue-100">Centro de Conocimiento</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-navy-900 mt-3 mb-4">P&A Business Insights</h2>
+                <p class="text-slate-600 text-base sm:text-lg mb-6">
+                    Contenido especializado para empresarios y profesionales conectado con nuestra estrategia de LinkedIn y WhatsApp.
+                </p>
+                
+                <!-- Search Filter Input -->
+                <div class="max-w-md mx-auto relative">
+                    <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
+                        <i class="fa-solid fa-search"></i>
+                    </span>
+                    <input type="text" id="insight-search" onkeyup="filterInsights()" placeholder="Buscar por tema (ej. Tributación, Flujo, IA)..." class="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-navy-900 text-sm shadow-sm">
+                </div>
+            </div>
+
+            <!-- Insights Cards Grid -->
+            <div id="insights-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Insight 1 -->
+                <div class="insight-card bg-slate-50 border border-slate-200 rounded-2xl p-6 hover:shadow-xl transition-all flex flex-col justify-between" data-category="finanzas">
+                    <div>
+                        <span class="text-xs font-bold px-3 py-1 bg-blue-100 text-navy-900 rounded-full inline-block mb-4">Finanzas</span>
+                        <h3 class="font-bold text-navy-900 text-lg mb-2">📊 Finanzas empresariales para la toma de decisiones</h3>
+                        <p class="text-slate-600 text-xs leading-relaxed mb-4">Cómo interpretar los ratios clave de liquidez y endeudamiento para anticiparse a situaciones críticas.</p>
+                    </div>
+                    <button onclick="openInsightModal('Finanzas empresariales', 'Interpretar los ratios financieros correctamente permite a la gerencia conocer la salud real del negocio antes de comprometer capital en nuevos proyectos. En Pichardo & Asociados transformamos los números en claridad.')" class="text-navy-900 font-bold text-xs hover:text-gold-600 flex items-center space-x-1 mt-2">
+                        <span>Leer artículo</span>
+                        <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                    </button>
+                </div>
+
+                <!-- Insight 2 -->
+                <div class="insight-card bg-slate-50 border border-slate-200 rounded-2xl p-6 hover:shadow-xl transition-all flex flex-col justify-between" data-category="tributacion">
+                    <div>
+                        <span class="text-xs font-bold px-3 py-1 bg-amber-100 text-amber-800 rounded-full inline-block mb-4">Tributación</span>
+                        <h3 class="font-bold text-navy-900 text-lg mb-2">📑 Tributación en Nicaragua: Claves DGI y Alcaldía</h3>
+                        <p class="text-slate-600 text-xs leading-relaxed mb-4">Evite multas y recargos con una calendarización rigurosa de las obligaciones fiscales mensuales y anuales.</p>
+                    </div>
+                    <button onclick="openInsightModal('Tributación en Nicaragua', 'El cumplimiento fiscal en Nicaragua exige puntualidad y precisión ante la DGI y las Alcaldías municipales. Un diagnóstico tributario preventivo evita sorpresas desagradables en fiscalizaciones.')" class="text-navy-900 font-bold text-xs hover:text-gold-600 flex items-center space-x-1 mt-2">
+                        <span>Leer artículo</span>
+                        <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                    </button>
+                </div>
+
+                <!-- Insight 3 -->
+                <div class="insight-card bg-slate-50 border border-slate-200 rounded-2xl p-6 hover:shadow-xl transition-all flex flex-col justify-between" data-category="flujo">
+                    <div>
+                        <span class="text-xs font-bold px-3 py-1 bg-emerald-100 text-emerald-800 rounded-full inline-block mb-4">Flujo de Caja</span>
+                        <h3 class="font-bold text-navy-900 text-lg mb-2">💰 El Flujo de Caja: El pulso vital de tu empresa</h3>
+                        <p class="text-slate-600 text-xs leading-relaxed mb-4">Una empresa puede ser rentable en papel pero morir por falta de liquidez en caja. Aprende a gestionarlo.</p>
+                    </div>
+                    <button onclick="openInsightModal('Flujo de Caja', 'La gestión del flujo de caja proyectado permite anticipar faltantes de efectivo y negociar mejores plazos con proveedores y clientes. Es la herramienta número uno para la supervivencia empresarial.')" class="text-navy-900 font-bold text-xs hover:text-gold-600 flex items-center space-x-1 mt-2">
+                        <span>Leer artículo</span>
+                        <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                    </button>
+                </div>
+
+                <!-- Insight 4 -->
+                <div class="insight-card bg-slate-50 border border-slate-200 rounded-2xl p-6 hover:shadow-xl transition-all flex flex-col justify-between" data-category="control">
+                    <div>
+                        <span class="text-xs font-bold px-3 py-1 bg-purple-100 text-purple-800 rounded-full inline-block mb-4">Control Interno</span>
+                        <h3 class="font-bold text-navy-900 text-lg mb-2">🔎 Control interno y prevención de riesgos</h3>
+                        <p class="text-slate-600 text-xs leading-relaxed mb-4">Implemente segregación de funciones y arqueos sorpresa para salvaguardar los activos de la organización.</p>
+                    </div>
+                    <button onclick="openInsightModal('Control Interno', 'El control interno no busca desconfiar del personal, sino establecer procesos transparentes que protejan tanto a la empresa como a sus colaboradores frente a riesgos operativos.')" class="text-navy-900 font-bold text-xs hover:text-gold-600 flex items-center space-x-1 mt-2">
+                        <span>Leer artículo</span>
+                        <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                    </button>
+                </div>
+
+                <!-- Insight 5 -->
+                <div class="insight-card bg-slate-50 border border-slate-200 rounded-2xl p-6 hover:shadow-xl transition-all flex flex-col justify-between" data-category="ia">
+                    <div>
+                        <span class="text-xs font-bold px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full inline-block mb-4">IA & Automatización</span>
+                        <h3 class="font-bold text-navy-900 text-lg mb-2">🤖 IA y automatización en procesos financieros</h3>
+                        <p class="text-slate-600 text-xs leading-relaxed mb-4">Cómo la inteligencia artificial y los bots reducen el tiempo de conciliación bancaria y captura de datos.</p>
+                    </div>
+                    <button onclick="openInsightModal('IA y Automatización', 'La integración de herramientas de automatización e inteligencia artificial libera al equipo contable de tareas repetitivas, permitiéndoles enfocar su talento en el análisis estratégico.')" class="text-navy-900 font-bold text-xs hover:text-gold-600 flex items-center space-x-1 mt-2">
+                        <span>Leer artículo</span>
+                        <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                    </button>
+                </div>
+
+                <!-- Insight 6 -->
+                <div class="insight-card bg-slate-50 border border-slate-200 rounded-2xl p-6 hover:shadow-xl transition-all flex flex-col justify-between" data-category="erp">
+                    <div>
+                        <span class="text-xs font-bold px-3 py-1 bg-sky-100 text-sky-800 rounded-full inline-block mb-4">ERP</span>
+                        <h3 class="font-bold text-navy-900 text-lg mb-2">💻 Sistemas ERP: El sistema nervioso de la empresa</h3>
+                        <p class="text-slate-600 text-xs leading-relaxed mb-4">Criterios fundamentales para elegir e implementar un sistema integrado de gestión sin fracasar en el intento.</p>
+                    </div>
+                    <button onclick="openInsightModal('Sistemas ERP', 'La implementación exitosa de un ERP requiere una correcta parametrización contable y el compromiso directivo. En Pichardo & Asociados guiamos este proceso de punta a punta.')" class="text-navy-900 font-bold text-xs hover:text-gold-600 flex items-center space-x-1 mt-2">
+                        <span>Leer artículo</span>
+                        <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                    </button>
+                </div>
+
+                <!-- Insight 7 -->
+                <div class="insight-card bg-slate-50 border border-slate-200 rounded-2xl p-6 hover:shadow-xl transition-all flex flex-col justify-between" data-category="gestion">
+                    <div>
+                        <span class="text-xs font-bold px-3 py-1 bg-rose-100 text-rose-800 rounded-full inline-block mb-4">Gestión</span>
+                        <h3 class="font-bold text-navy-900 text-lg mb-2">🏢 Gestión empresarial y gobierno corporativo</h3>
+                        <p class="text-slate-600 text-xs leading-relaxed mb-4">Estructurar organigramas, políticas y manuales de procedimientos para escalar el negocio de manera ordenada.</p>
+                    </div>
+                    <button onclick="openInsightModal('Gestión Empresarial', 'Escalar un negocio exige delegar con orden. Las políticas claras y los indicadores de desempeño aseguran que toda la organización reme hacia el mismo objetivo.')" class="text-navy-900 font-bold text-xs hover:text-gold-600 flex items-center space-x-1 mt-2">
+                        <span>Leer artículo</span>
+                        <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                    </button>
+                </div>
+
+                <!-- Insight 8 -->
+                <div class="insight-card bg-slate-50 border border-slate-200 rounded-2xl p-6 hover:shadow-xl transition-all flex flex-col justify-between" data-category="finanzas">
+                    <div>
+                        <span class="text-xs font-bold px-3 py-1 bg-teal-100 text-teal-800 rounded-full inline-block mb-4">Estrategia</span>
+                        <h3 class="font-bold text-navy-900 text-lg mb-2">📈 Indicadores KPI que toda PYME debe vigilar</h3>
+                        <p class="text-slate-600 text-xs leading-relaxed mb-4">Margen bruto, EBITDA, rotación de inventarios y costo de adquisición de clientes explicados sin rodeos.</p>
+                    </div>
+                    <button onclick="openInsightModal('Indicadores KPI', 'Lo que no se mide, no se puede mejorar. Definir 4 o 5 KPIs vitales para tu sector de negocio transforma radicalmente la capacidad de reacción gerencial.')" class="text-navy-900 font-bold text-xs hover:text-gold-600 flex items-center space-x-1 mt-2">
+                        <span>Leer artículo</span>
+                        <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="mt-12 text-center bg-navy-900 text-white p-6 rounded-2xl max-w-2xl mx-auto border border-gold-500/30">
+                <p class="italic font-medium text-sm sm:text-base text-gold-300 mb-2">“Conocimiento que ayuda a tomar mejores decisiones.”</p>
+                <p class="text-slate-300 text-xs">Síguenos en LinkedIn y contáctanos por WhatsApp para recibir nuestros análisis semanales.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. LLAMADO A LA ACCIÓN & CONTACTO -->
+    <section id="contacto" class="py-24 bg-navy-900 text-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                
+                <div>
+                    <span class="text-gold-400 font-bold tracking-widest uppercase text-xs sm:text-sm bg-navy-800 px-3 py-1 rounded-full border border-gold-500/30">Hablemos de su Empresa</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-3 mb-6">¿Necesitas ordenar, controlar o hacer crecer tu empresa?</h2>
+                    <p class="text-slate-300 text-base sm:text-lg mb-8 leading-relaxed">
+                        Cuéntanos qué necesita tu negocio y evaluemos juntos la mejor solución personalizada con el respaldo de nuestros expertos en Managua, Nicaragua.
+                    </p>
+
+                    <div class="space-y-6">
+                        <a href="https://wa.me/50589375553?text=Hola,%20necesito%20asesoría%20para%20mi%20empresa." target="_blank" class="flex items-center space-x-4 p-4 rounded-2xl bg-navy-800/80 border border-slate-700 hover:border-gold-500 transition-all group">
+                            <div class="w-12 h-12 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
+                                <i class="fa-brands fa-whatsapp"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs text-slate-400 block">WhatsApp Directo</span>
+                                <span class="text-white font-bold text-lg">+505 8937 5553</span>
+                            </div>
+                        </a>
+
+                        <a href="mailto:fpichardoasociados@gmail.com" class="flex items-center space-x-4 p-4 rounded-2xl bg-navy-800/80 border border-slate-700 hover:border-gold-500 transition-all group">
+                            <div class="w-12 h-12 rounded-xl bg-blue-500/20 text-blue-400 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs text-slate-400 block">Correo Electrónico</span>
+                                <span class="text-white font-bold text-base sm:text-lg">fpichardoasociados@gmail.com</span>
+                            </div>
+                        </a>
+
+                        <div class="flex items-center space-x-4 p-4 rounded-2xl bg-navy-800/80 border border-slate-700">
+                            <div class="w-12 h-12 rounded-xl bg-gold-500/20 text-gold-400 flex items-center justify-center text-xl">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs text-slate-400 block">Ubicación Principal</span>
+                                <span class="text-white font-bold text-base sm:text-lg">Managua – Nicaragua</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive Contact Form -->
+                <div class="bg-navy-800 border border-slate-700 rounded-3xl p-8 shadow-2xl">
+                    <h3 class="text-2xl font-bold text-white mb-2">Solicitar Asesoría Profesional</h3>
+                    <p class="text-slate-300 text-xs sm:text-sm mb-6">Complete el formulario y nos pondremos en contacto con usted a la brevedad posible.</p>
+                    
+                    <form id="contact-form" onsubmit="handleFormSubmit(event)" class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-1">Nombre y Apellido *</label>
+                            <input type="text" id="form-name" required placeholder="Ej. Lic. Carlos Mendoza" class="w-full bg-navy-900 border border-slate-700 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-gold-500">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-1">Empresa / Negocio *</label>
+                            <input type="text" id="form-company" required placeholder="Ej. Comercializadora del Norte S.A." class="w-full bg-navy-900 border border-slate-700 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-gold-500">
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-300 mb-1">Teléfono / WhatsApp *</label>
+                                <input type="tel" id="form-phone" required placeholder="Ej. +505 8888 8888" class="w-full bg-navy-900 border border-slate-700 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-gold-500">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-300 mb-1">Servicio de Interés</label>
+                                <select id="form-service" class="w-full bg-navy-900 border border-slate-700 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-gold-500">
+                                    <option value="Contabilidad y Finanzas">Contabilidad & Finanzas</option>
+                                    <option value="Tributación y Cumplimiento">Tributación & Cumplimiento</option>
+                                    <option value="Auditoría y Control Interno">Auditoría & Control Interno</option>
+                                    <option value="Gestión Empresarial">Gestión Empresarial</option>
+                                    <option value="Tecnología y ERP">Tecnología & Transformación</option>
+                                    <option value="Otro">Otro servicio</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-1">Breve descripción de su consulta</label>
+                            <textarea id="form-message" rows="3" placeholder="¿Cómo podemos ayudarle a ordenar o crecer su empresa?" class="w-full bg-navy-900 border border-slate-700 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-gold-500"></textarea>
+                        </div>
+                        <button type="submit" class="w-full gold-gradient text-navy-900 font-bold py-4 rounded-xl shadow-lg hover:opacity-95 transition-all text-base flex items-center justify-center space-x-2">
+                            <i class="fa-solid fa-paper-plane"></i>
+                            <span>Enviar Solicitud de Asesoría</span>
+                        </button>
+                    </form>
+                    
+                    <!-- Success Notification Box -->
+                    <div id="form-success" class="hidden mt-4 p-4 rounded-xl bg-emerald-500/20 border border-emerald-500 text-emerald-300 text-sm text-center">
+                        <i class="fa-solid fa-circle-check text-lg mb-1 block"></i>
+                        ¡Solicitud enviada con éxito! Un especialista de Pichardo & Asociados le contactará de inmediato.
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. FOOTER CORPORATIVO -->
+    <footer class="bg-black text-slate-400 py-16 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+                
+                <!-- Col 1: Brand Info -->
+                <div class="space-y-4">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-lg gold-gradient flex items-center justify-center text-navy-900 font-bold text-xl">
+                            P&A
+                        </div>
+                        <span class="text-white font-bold text-lg tracking-wider">PICHARDO & ASOCIADOS</span>
+                    </div>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Firma de servicios profesionales especializada en contabilidad, tributación, finanzas, auditoría, control interno, gestión empresarial y transformación tecnológica en Nicaragua.
+                    </p>
+                    <div class="text-xs text-gold-400 font-semibold">
+                        Orden, control y decisiones inteligentes para tu empresa.
+                    </div>
+                </div>
+
+                <!-- Col 2: Quick Links -->
+                <div>
+                    <h4 class="text-white font-bold text-sm mb-4 tracking-wider uppercase">Navegación</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="#inicio" class="hover:text-gold-400 transition-colors">Inicio</a></li>
+                        <li><a href="#quienes-somos" class="hover:text-gold-400 transition-colors">Quiénes Somos</a></li>
+                        <li><a href="#servicios" class="hover:text-gold-400 transition-colors">Servicios Profesionales</a></li>
+                        <li><a href="#ayudamos" class="hover:text-gold-400 transition-colors">¿A Quiénes Ayudamos?</a></li>
+                        <li><a href="#enfoque" class="hover:text-gold-400 transition-colors">Nuestro Enfoque</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Services Divisions -->
+                <div>
+                    <h4 class="text-white font-bold text-sm mb-4 tracking-wider uppercase">Divisiones</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="#servicios" onclick="switchServiceTab(0)" class="hover:text-gold-400 transition-colors">Contabilidad & Finanzas</a></li>
+                        <li><a href="#servicios" onclick="switchServiceTab(1)" class="hover:text-gold-400 transition-colors">Tributación & Cumplimiento</a></li>
+                        <li><a href="#servicios" onclick="switchServiceTab(2)" class="hover:text-gold-400 transition-colors">Auditoría & Control Interno</a></li>
+                        <li><a href="#servicios" onclick="switchServiceTab(3)" class="hover:text-gold-400 transition-colors">Gestión Empresarial</a></li>
+                        <li><a href="#servicios" onclick="switchServiceTab(4)" class="hover:text-gold-400 transition-colors">Tecnología & Transformación</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Contact & Social -->
+                <div>
+                    <h4 class="text-white font-bold text-sm mb-4 tracking-wider uppercase">Contacto & Redes</h4>
+                    <ul class="space-y-2 text-xs mb-4">
+                        <li><i class="fa-solid fa-location-dot text-gold-400 mr-2"></i> Managua – Nicaragua</li>
+                        <li><i class="fa-solid fa-phone text-gold-400 mr-2"></i> +505 8937 5553</li>
+                        <li><i class="fa-solid fa-envelope text-gold-400 mr-2"></i> fpichardoasociados@gmail.com</li>
+                    </ul>
+                    <div class="flex space-x-3">
+                        <a href="https://wa.me/50589375553" target="_blank" class="w-8 h-8 rounded-lg bg-navy-800 text-emerald-400 flex items-center justify-center hover:bg-gold-500 hover:text-navy-900 transition-all text-sm">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </a>
+                        <a href="mailto:fpichardoasociados@gmail.com" class="w-8 h-8 rounded-lg bg-navy-800 text-blue-400 flex items-center justify-center hover:bg-gold-500 hover:text-navy-900 transition-all text-sm">
+                            <i class="fa-solid fa-envelope"></i>
+                        </a>
+                        <a href="#contacto" class="w-8 h-8 rounded-lg bg-navy-800 text-gold-400 flex items-center justify-center hover:bg-gold-500 hover:text-navy-900 transition-all text-sm">
+                            <i class="fa-solid fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="pt-8 border-t border-slate-900 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500">
+                <p>&copy; 2026 Pichardo & Asociados. Todos los derechos reservados.</p>
+                <div class="flex space-x-6 mt-4 sm:mt-0">
+                    <span class="hover:text-slate-400">Transformamos información en decisiones.</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal for Insights Article Reader -->
+    <div id="insight-modal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-navy-900 border border-slate-700 text-white rounded-3xl max-w-lg w-full p-6 sm:p-8 relative shadow-2xl">
+            <button onclick="closeInsightModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white p-2 text-xl focus:outline-none">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <span class="text-xs font-bold px-3 py-1 bg-gold-500/20 text-gold-400 rounded-full inline-block mb-3">P&A Business Insights</span>
+            <h3 id="modal-title" class="text-2xl font-extrabold text-white mb-4">Título del Artículo</h3>
+            <p id="modal-body" class="text-slate-300 text-sm leading-relaxed mb-6">Contenido completo del insight...</p>
+            <div class="flex justify-end space-x-3">
+                <a id="modal-whatsapp-btn" href="#" target="_blank" class="gold-gradient text-navy-900 font-bold px-5 py-2.5 rounded-xl text-xs flex items-center space-x-2 shadow">
+                    <i class="fa-brands fa-whatsapp text-base"></i>
+                    <span>Consultar sobre este tema</span>
+                </a>
+                <button onclick="closeInsightModal()" class="bg-navy-800 hover:bg-navy-700 text-white px-5 py-2.5 rounded-xl text-xs font-semibold">
+                    Cerrar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Functionality -->
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu on link click
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Services Tab Switcher
+        function switchServiceTab(index) {
+            for (let i = 0; i < 5; i++) {
+                const btn = document.getElementById(`tab-btn-${i}`);
+                const content = document.getElementById(`service-content-${i}`);
+                if (i === index) {
+                    btn.classList.remove('bg-navy-800', 'text-slate-300', 'border', 'border-slate-700');
+                    btn.classList.add('bg-gold-500', 'text-navy-900', 'shadow-lg');
+                    content.classList.remove('hidden');
+                    content.classList.add('block');
+                } else {
+                    btn.classList.remove('bg-gold-500', 'text-navy-900', 'shadow-lg');
+                    btn.classList.add('bg-navy-800', 'text-slate-300', 'border', 'border-slate-700');
+                    content.classList.remove('block');
+                    content.classList.add('hidden');
+                }
+            }
+        }
+
+        // Insights Search Filter
+        function filterInsights() {
+            const input = document.getElementById('insight-search').value.toLowerCase();
+            const cards = document.querySelectorAll('.insight-card');
+
+            cards.forEach(card => {
+                const text = card.textContent.toLowerCase();
+                if (text.includes(input)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Insight Modal Reader
+        function openInsightModal(title, content) {
+            document.getElementById('modal-title').textContent = title;
+            document.getElementById('modal-body').textContent = content;
+            const waText = encodeURIComponent(`Hola, leí el artículo "${title}" en el centro de conocimientos de Pichardo & Asociados y me gustaría profundizar al respecto.`);
+            document.getElementById('modal-whatsapp-btn').href = `https://wa.me/50589375553?text=${waText}`;
+            document.getElementById('insight-modal').classList.remove('hidden');
+        }
+
+        function closeInsightModal() {
+            document.getElementById('insight-modal').classList.add('hidden');
+        }
+
+        // Contact Form Submission
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const name = document.getElementById('form-name').value;
+            const company = document.getElementById('form-company').value;
+            const phone = document.getElementById('form-phone').value;
+            const service = document.getElementById('form-service').value;
+            const message = document.getElementById('form-message').value;
+
+            // Show success alert/box
+            document.getElementById('form-success').classList.remove('hidden');
+            document.getElementById('contact-form').reset();
+
+            // Optional automatic WhatsApp redirect prompt or preview
+            setTimeout(() => {
+                const waUrl = `https://wa.me/50589375553?text=${encodeURIComponent(`Hola, mi nombre es ${name} de la empresa ${company}. Solicito asesoría en ${service}. Mensaje: ${message}`)}`;
+                // You can also automatically open WhatsApp or let them read the success box
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
